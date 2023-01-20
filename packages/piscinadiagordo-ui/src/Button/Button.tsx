@@ -1,4 +1,4 @@
-import { ComponentProps, ComponentType, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ReactNode } from "react";
 import { Icon, type IconProps } from "phosphor-react";
 import { cva, type VariantProps } from "cva";
 
@@ -34,6 +34,10 @@ const buttonVariants = cva(
 				small: ["text-sm", "py-1", "px-1.5", "leading-4", "gap-1"],
 				medium: ["text-base", "py-1.5", "px-2", "leading-5", "gap-1"],
 				large: ["text-lg", "py-2", "px-2.5", "leading-6", "gap-1.5"],
+			},
+			fullWidth: {
+				true: ["w-full"],
+				false: ["w-fit"],
 			},
 		},
 		compoundVariants: [
@@ -151,42 +155,56 @@ const buttonVariants = cva(
 	}
 );
 
-export interface ButtonProps
+export interface ButtonProps<T extends ElementType>
 	extends ComponentProps<"button">,
 		VariantProps<typeof buttonVariants> {
-	LeftIcon?: Icon;
-	RightIcon?: Icon;
+	leftIcon?: ReactNode | Icon;
+	rightIcon?: ReactNode | Icon;
+	as?: T;
 }
 
-export const Button = ({
+export const Button = <T extends ElementType = "button">({
 	children,
 	intent,
 	size,
+	fullWidth,
 	variant,
 	className,
-	LeftIcon,
-	RightIcon,
+	leftIcon,
+	rightIcon,
+	as,
 	...props
-}: ButtonProps) => {
+}: ButtonProps<T> &
+	Omit<React.ComponentPropsWithoutRef<T>, keyof ButtonProps<T>>) => {
+	const Component = as || "button";
+	const LIcon = leftIcon as ElementType;
+	const RIcon = rightIcon as ElementType;
+
 	return (
-		<button
-			className={buttonVariants({ intent, size, variant, className })}
+		<Component
+			className={buttonVariants({
+				intent,
+				size,
+				variant,
+				fullWidth,
+				className,
+			})}
 			{...props}
 		>
-			{LeftIcon && (
-				<LeftIcon
+			{leftIcon && (
+				<LIcon
 					size={size === "small" ? 16 : 20}
 					weight={size === "small" ? "regular" : "bold"}
 				/>
 			)}
 			<span>{children ?? "Button"}</span>
-			{RightIcon && (
-				<RightIcon
+			{rightIcon && (
+				<RIcon
 					size={size === "small" ? 16 : 20}
 					weight={size === "small" ? "regular" : "bold"}
 				/>
 			)}
-		</button>
+		</Component>
 	);
 };
 
