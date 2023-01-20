@@ -1,14 +1,13 @@
 {
 	"$schema": "https://turbo.build/schema.json",
 	"pipeline": {
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**", ".next/**", "storybook-static/**"]
+		},
 		"piscinadiagordo.it#build": {
 			"dependsOn": ["^build"],
-			"env": ["SANITY_API_READ_TOKEN"],
-			"outputs": ["dist/**", ".next/**"]
-		},
-		"ui.piscinadiagordo.it#build": {
-			"dependsOn": ["^build"],
-			"outputs": ["storybook-static/**"]
+			"env": ["SANITY_API_READ_TOKEN"]
 		},
 		"test": {
 			"dependsOn": ["build"],
