@@ -1,6 +1,6 @@
 {
 	"name": "@piscinadiagordo/tsconfig",
-	"version": "0.0.0",
+	"version": "0.0.2",
 	"private": true,
 	"files": [
 		"base.json",
@@ -9,6 +9,6 @@
 	],
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org/",
-		"access": "restricted"
+		"access": "public"
 	}
 }
