@@ -1,7 +1,7 @@
 {
 	"name": "@piscinadiagordo/tsconfig",
-	"version": "0.0.2",
-	"private": true,
+	"version": "0.0.3",
+	"license": "MIT",
 	"files": [
 		"base.json",
 		"nextjs.json",

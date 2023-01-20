@@ -1,5 +1,11 @@
 # @piscinadiagordo/tsconfig
 
+## 0.0.3
+
+### Patch Changes
+
+- Dummy patch bump
+
 ## 0.0.2
 
 ### Patch Changes
