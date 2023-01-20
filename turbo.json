@@ -3,12 +3,16 @@
 	"pipeline": {
 		"build": {
 			"dependsOn": ["^build"],
-			"outputs": ["dist/**", ".next/**", "storybook-static/**"]
+			"outputs": ["dist/**"]
 		},
 		"piscinadiagordo.it#build": {
 			"dependsOn": ["^build"],
 			"env": ["SANITY_API_READ_TOKEN"],
-			"outputs": ["dist/**", ".next/**"]
+			"outputs": [".next/**"]
+		},
+		"ui.piscinadiagordo.it#build": {
+			"dependsOn": ["^build"],
+			"outputs": ["storybook-static/**"]
 		},
 		"test": {
 			"dependsOn": ["build"],
