@@ -1,93 +1,113 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
-import { Posts, PostsProps, query } from "./Posts";
-import PreviewPosts from "./PreviewPosts";
-import { createClient } from "./sanity.client";
-import { PreviewSuspense } from "./sanity.preview";
-import { previewData } from "next/headers";
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+
+import { Button } from "@piscinadiagordo/ui";
+
+import styles from "./page.module.css";
 import Link from "next/link";
-import { cache } from "react";
 
-const client = createClient();
-const clientFetch = cache(client.fetch.bind(client));
+const inter = Inter({ subsets: ["latin"] });
 
-export default async function IndexPage() {
-	const thePreviewData = previewData();
-	const preview = !!thePreviewData;
-	const token = (thePreviewData as { token: string })?.token;
-
-	let posts: PostsProps["data"];
-
-	if (token) {
-		const previewClient = client.withConfig({ token, useCdn: false });
-		posts = await previewClient.fetch(query);
-	} else {
-		posts = await clientFetch(query);
-	}
-
+export default function Home() {
 	return (
-		<>
-			<div className="relative bg-gray-50 px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
-				<div className="absolute inset-0">
-					<div className="h-1/3 bg-white sm:h-2/3" />
-				</div>
-				<div className="relative mx-auto max-w-7xl">
-					<div className="text-center">
-						<h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-							{preview ? "Preview Mode" : "Not in Preview Mode"}
-						</h2>
-						{preview && (
-							<>
-								<p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
-									{token
-										? "Using a read token, works in Safari and Incognito mode. No Sanity account needed."
-										: "Using cookie based auth, must be logged in to Sanity in order to work."}
-								</p>
-								<a
-									href="/api/exit-preview"
-									className="mx-2 my-4 inline-block rounded-full border border-gray-200 px-4 py-1 text-sm font-semibold text-gray-600 hover:border-transparent hover:bg-gray-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2"
-								>
-									Exit preview
-								</a>
-							</>
-						)}
-						{!preview && (
-							<>
-								<a
-									href="/api/preview"
-									className="mx-2 my-4 inline-block rounded-full border border-gray-200 px-4 py-1 text-sm font-semibold text-gray-600 hover:border-transparent hover:bg-gray-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2"
-								>
-									Preview with cookie
-								</a>
-								<a
-									href="/api/preview?token=1"
-									className="mx-2 my-4 inline-block rounded-full border border-gray-200 px-4 py-1 text-sm font-semibold text-gray-600 hover:border-transparent hover:bg-gray-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2"
-								>
-									Preview with token
-								</a>
-							</>
-						)}
-					</div>
-					{preview ? (
-						<PreviewSuspense fallback={<Posts data={posts} />}>
-							<PreviewPosts token={token} serverSnapshot={posts} />
-						</PreviewSuspense>
-					) : (
-						<Posts data={posts} />
-					)}
+		<main className={styles.main}>
+			<div className={styles.description}>
+				<p>
+					Get started by editing&nbsp;
+					<code className={styles.code}>app/page.tsx</code> - Also check
+					out this cool loking button{" "}
+					<Button
+						intent={"primary"}
+						size={"small"}
+						as={Link}
+						href={"/studio"}
+					>
+						Open Studio
+					</Button>
+				</p>
+				<div>
+					<a
+						href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						By{" "}
+						<Image
+							src="/vercel.svg"
+							alt="Vercel Logo"
+							className={styles.vercelLogo}
+							width={100}
+							height={24}
+							priority
+						/>
+					</a>
 				</div>
 			</div>
-			<div className="text-center">
-				<Link
-					href="/studio"
-					className="mx-2 my-4 inline-block rounded-full border border-gray-200 px-4 py-1 text-sm font-semibold text-gray-600 hover:border-transparent hover:bg-gray-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2"
+
+			<div className={styles.center}>
+				<Image
+					className={styles.logo}
+					src="/next.svg"
+					alt="Next.js Logo"
+					width={180}
+					height={37}
+					priority
+				/>
+				<div className={styles.thirteen}>
+					<Image
+						src="/thirteen.svg"
+						alt="13"
+						width={40}
+						height={31}
+						priority
+					/>
+				</div>
+			</div>
+
+			<div className={styles.grid}>
+				<a
+					href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+					className={styles.card}
+					target="_blank"
+					rel="noopener noreferrer"
 				>
-					Open Studio
-				</Link>
+					<h2 className={inter.className}>
+						Docs <span>-&gt;</span>
+					</h2>
+					<p className={inter.className}>
+						Find in-depth information about Next.js features and API.
+					</p>
+				</a>
+
+				<a
+					href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+					className={styles.card}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<h2 className={inter.className}>
+						Templates <span>-&gt;</span>
+					</h2>
+					<p className={inter.className}>
+						Explore the Next.js 13 playground.
+					</p>
+				</a>
+
+				<a
+					href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+					className={styles.card}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<h2 className={inter.className}>
+						Deploy <span>-&gt;</span>
+					</h2>
+					<p className={inter.className}>
+						Instantly deploy your Next.js site to a shareable URL with
+						Vercel.
+					</p>
+				</a>
 			</div>
-		</>
+		</main>
 	);
 }
-
-// eslint-disable-next-line no-warning-comments
-// @TODO remember to set useCdn = true
-export const revalidate = 60;
