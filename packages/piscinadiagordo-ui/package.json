@@ -22,7 +22,7 @@
 		"@types/react-dom": "^18.0.10",
 		"autoprefixer": "^10.4.13",
 		"eslint": "^7.32.0",
-		"eslint-config-piscinadiagordo": "*",
+		"@piscinadiagordo/eslint-config": "*",
 		"postcss": "^8.4.21",
 		"react": "^18.2.0",
 		"tailwindcss": "^3.2.4",

@@ -1,4 +1,4 @@
-# eslint-config-piscinadiagordo
+# @piscinadiagordo/eslint-config
 
 ## 0.0.2
 
