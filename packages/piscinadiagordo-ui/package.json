@@ -1,0 +1,40 @@
+{
+	"name": "@piscinadiagordo/ui",
+	"version": "0.0.0",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"sideEffects": false,
+	"license": "MIT",
+	"files": [
+		"dist/**"
+	],
+	"scripts": {
+		"build": "tsup",
+		"dev": "yarn build --watch",
+		"lint": "TIMING=1 eslint \"**/*.ts*\"",
+		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+	},
+	"devDependencies": {
+		"@piscinadiagordo/tsconfig": "*",
+		"@tailwindcss/forms": "^0.5.3",
+		"@types/react": "^17.0.37",
+		"@types/react-dom": "^17.0.11",
+		"autoprefixer": "^10.4.13",
+		"eslint": "^7.32.0",
+		"eslint-config-piscinadiagordo": "*",
+		"postcss": "^8.4.21",
+		"react": "^18.2.0",
+		"tailwindcss": "^3.2.4",
+		"tsup": "^6.5.0",
+		"typescript": "^4.5.2"
+	},
+	"dependencies": {
+		"cva": "npm:class-variance-authority",
+		"phosphor-react": "^1.4.1"
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org/",
+		"access": "public"
+	}
+}

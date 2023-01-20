@@ -1,0 +1,29 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"pipeline": {
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**", ".next/**"]
+		},
+		"ui.piscinadiagordo.it#build": {
+			"dependsOn": ["^build"],
+			"outputs": ["storybook-static/**"]
+		},
+		"test": {
+			"dependsOn": ["build"],
+			"inputs": [
+				"packages/**/*.tsx",
+				"packages/**/*.ts",
+				"apps/**/*.ts",
+				"apps/**/*.tsx"
+			]
+		},
+		"lint": {
+			"outputs": []
+		},
+		"dev": {
+			"cache": false,
+			"persistent": true
+		}
+	}
+}
