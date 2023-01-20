@@ -18,8 +18,8 @@
 	"devDependencies": {
 		"@piscinadiagordo/tsconfig": "*",
 		"@tailwindcss/forms": "^0.5.3",
-		"@types/react": "^17.0.37",
-		"@types/react-dom": "^17.0.11",
+		"@types/react": "^18.0.27",
+		"@types/react-dom": "^18.0.10",
 		"autoprefixer": "^10.4.13",
 		"eslint": "^7.32.0",
 		"eslint-config-piscinadiagordo": "*",
