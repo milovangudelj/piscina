@@ -1,27 +1,20 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Inter } from "@next/font/google";
 
 import { Button } from "@piscinadiagordo/ui";
-
-import styles from "./page.module.css";
-import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 	return (
-		<main className={styles.main}>
-			<div className={styles.description}>
+		<main>
+			<div>
 				<p>
 					Get started by editing&nbsp;
-					<code className={styles.code}>app/page.tsx</code> - Also check
-					out this cool loking button{" "}
-					<Button
-						intent={"primary"}
-						size={"small"}
-						as={Link}
-						href={"/studio"}
-					>
+					<code>app/page.tsx</code> - Also check out this cool loking
+					button{" "}
+					<Button intent={"primary"} as={Link} href={"/studio"}>
 						Open Studio
 					</Button>
 				</p>
@@ -35,7 +28,6 @@ export default function Home() {
 						<Image
 							src="/vercel.svg"
 							alt="Vercel Logo"
-							className={styles.vercelLogo}
 							width={100}
 							height={24}
 							priority
@@ -44,16 +36,15 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className={styles.center}>
+			<div>
 				<Image
-					className={styles.logo}
 					src="/next.svg"
 					alt="Next.js Logo"
 					width={180}
 					height={37}
 					priority
 				/>
-				<div className={styles.thirteen}>
+				<div>
 					<Image
 						src="/thirteen.svg"
 						alt="13"
@@ -64,10 +55,9 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className={styles.grid}>
+			<div>
 				<a
 					href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className={styles.card}
 					target="_blank"
 					rel="noopener noreferrer"
 				>
@@ -81,7 +71,6 @@ export default function Home() {
 
 				<a
 					href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className={styles.card}
 					target="_blank"
 					rel="noopener noreferrer"
 				>
@@ -95,7 +84,6 @@ export default function Home() {
 
 				<a
 					href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className={styles.card}
 					target="_blank"
 					rel="noopener noreferrer"
 				>
