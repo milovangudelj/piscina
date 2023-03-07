@@ -7,7 +7,11 @@
 		},
 		"piscinadiagordo.it#build": {
 			"dependsOn": ["^build"],
-			"env": ["SANITY_API_READ_TOKEN"],
+			"env": [
+				"SANITY_API_READ_TOKEN",
+				"NEXT_PUBLIC_SANITY_PROJECT_ID",
+				"NEXT_PUBLIC_SANITY_DATASET"
+			],
 			"outputs": [".next/**"]
 		},
 		"ui.piscinadiagordo.it#build": {
