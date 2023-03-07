@@ -14,7 +14,7 @@ export default function Home() {
 					Get started by editing&nbsp;
 					<code>app/page.tsx</code> - Also check out this cool loking
 					button{" "}
-					<Button intent={"primary"} as={Link} href={"/studio"}>
+					<Button intent={"primary"} as={"a"} href={"/studio"}>
 						Open Studio
 					</Button>
 				</p>
