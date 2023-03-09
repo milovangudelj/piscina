@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, Plus } from "@phosphor-icons/react";
+import { Plus } from "@phosphor-icons/react";
 
 import { Button } from "../Button";
 import { Logo } from "../Logo";
@@ -93,7 +93,10 @@ export const Navbar = () => {
 										{link.text}
 										{link.dropdown && (
 											<span className="ml-1">
-												<Plus className="h-3.5 w-3.5 text-current" />
+												<Plus
+													className="h-2.5 w-2.5 text-current"
+													weight="bold"
+												/>
 											</span>
 										)}
 									</Link>
