@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 
 import { Button } from "@piscinadiagordo/ui";
+import { UseClient } from "../components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +17,11 @@ export default function Home() {
 					Get started by editing&nbsp;
 					<code>app/page.tsx</code> - Also check out this cool loking
 					button{" "}
-					<Button intent={"primary"} as={"a"} href={"/studio"}>
-						Open Studio
-					</Button>
+					<UseClient>
+						<Button intent={"primary"} as={"a"} href={"/studio"}>
+							Open Studio
+						</Button>
+					</UseClient>
 				</p>
 				<div>
 					<a

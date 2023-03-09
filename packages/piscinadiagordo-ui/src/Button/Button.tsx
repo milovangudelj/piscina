@@ -1,5 +1,5 @@
 import { ComponentProps, ElementType, ReactNode } from "react";
-import { Icon, type IconProps } from "phosphor-react";
+import { Icon, type IconProps } from "@phosphor-icons/react";
 import { cva, type VariantProps } from "cva";
 
 const buttonVariants = cva(["btn"], {
