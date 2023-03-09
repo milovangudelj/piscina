@@ -21,8 +21,11 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				karla: ["Karla", ...defaultTheme.fontFamily.sans],
-				montserrat: ["Montserrat", ...defaultTheme.fontFamily.sans],
+				karla: ["var(--karla-font)", ...defaultTheme.fontFamily.sans],
+				montserrat: [
+					"var(--montserrat-font)",
+					...defaultTheme.fontFamily.sans,
+				],
 			},
 			letterSpacing: {
 				button: "1.13px",

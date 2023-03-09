@@ -5,7 +5,7 @@ export default defineConfig((options) => {
 		entry: ["src/index.ts"],
 		publicDir: "./public",
 		format: ["cjs", "esm"],
-		external: ["react", "@phosphor-icons/react", "cva", "next"],
+		external: ["react", "next", "classnames", "@phosphor-icons/react", "cva"],
 		clean: true,
 		dts: true,
 		sourcemap: true,
