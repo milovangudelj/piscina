@@ -18,7 +18,7 @@
 		"@piscinadiagordo/eslint-config": "*",
 		"@types/react": "^18.0.26",
 		"@types/react-dom": "^18.0.10",
-		"turbo": "latest",
+		"turbo": "^1.8.3",
 		"turbo-ignore": "^0.5.0"
 	},
 	"engines": {

@@ -5,9 +5,11 @@ export default defineConfig((options) => {
 		entry: ["src/index.ts"],
 		publicDir: "./public",
 		format: ["cjs", "esm"],
-		external: ["react"],
+		external: ["react", "next", "classnames", "@phosphor-icons/react", "cva"],
 		clean: true,
 		dts: true,
+		sourcemap: true,
 		minify: !options.watch,
+		skipNodeModulesBundle: true,
 	};
 });
