@@ -1,7 +1,3 @@
 "use client";
 
-import { ReactNode } from "react";
-
-export const UseClient = ({ children }: { children: ReactNode }) => {
-	return <>{children}</>;
-};
+export * as UseClient from "@piscinadiagordo/ui";
