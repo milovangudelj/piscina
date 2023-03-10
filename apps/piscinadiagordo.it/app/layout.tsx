@@ -4,8 +4,6 @@ import { Montserrat, Karla } from "next/font/google";
 
 import { Navbar } from "@piscinadiagordo/ui";
 
-import { UseClient } from "../components";
-
 const montserrat = Montserrat({
 	subsets: ["latin"],
 	style: ["normal", "italic"],
@@ -34,9 +32,7 @@ export default function RootLayout({
 		<html lang="en" className={`${montserrat.variable} ${karla.variable}`}>
 			<head />
 			<body>
-				<UseClient>
-					<Navbar />
-				</UseClient>
+				<Navbar />
 				{children}
 			</body>
 		</html>

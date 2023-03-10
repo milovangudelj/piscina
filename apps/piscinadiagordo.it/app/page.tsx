@@ -3,7 +3,6 @@
 import Image from "next/image";
 
 import { Button, HeroSection } from "@piscinadiagordo/ui";
-import { UseClient } from "../components";
 
 import heroImage from "../public/images/nuota-con-noi.webp";
 
@@ -16,11 +15,9 @@ export default function Home() {
 					Get started by editing&nbsp;
 					<code>app/page.tsx</code> - Also check out this cool loking
 					button{" "}
-					<UseClient>
-						<Button intent={"primary"} as={"a"} href={"/studio"}>
-							Open Studio
-						</Button>
-					</UseClient>
+					<Button intent={"primary"} as={"a"} href={"/studio"}>
+						Open Studio
+					</Button>
 				</p>
 				<div>
 					<a
